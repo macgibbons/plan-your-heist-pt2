@@ -92,6 +92,7 @@ namespace plan_your_heist_pt2
                         if (UserInputSpecialty.ToLower () == "muscle")
                         {
                             Muscle NewMember = new Muscle ();
+                            NewMember.Name = UserInputName;
                             Console.Clear ();
                             while (true)
                             {
@@ -156,6 +157,7 @@ namespace plan_your_heist_pt2
                         else if (UserInputSpecialty.ToLower () == "hacker")
                         {
                             Hacker NewMember = new Hacker ();
+                            NewMember.Name = UserInputName;
                             while (true)
                             {
                                 Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
@@ -220,6 +222,7 @@ namespace plan_your_heist_pt2
                         else if (UserInputSpecialty.ToLower () == "lock specialist")
                         {
                             LockPick NewMember = new LockPick ();
+                            NewMember.Name = UserInputName;
                             while (true)
                             {
                                 Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
