@@ -62,217 +62,228 @@ namespace plan_your_heist_pt2
             rolodex.Add (kevin);
             rolodex.Add (holden);
             rolodex.Add (jansen);
-
-            Console.WriteLine ($"You currently have {rolodex.Count} crew members in your rolodex");
-            Console.WriteLine ($"please add a new crew member:");
-            var UserInputName = Console.ReadLine ();
-            Console.Clear ();
             while (true)
             {
-                Console.WriteLine ($"Please Choose a sepcialty for {UserInputName}");
-                Console.WriteLine ("----------");
-                Console.WriteLine ("Hacker (Disables alarms)");
-                Console.WriteLine ("Muscle (Disarms guards)");
-                Console.WriteLine ("Lock Specialist (cracks vault)");
-                var UserInputSpecialty = Console.ReadLine ();
-                var UserInputSkillLevl = "";
-                var UserInputPercentage = "";
-
-                if (UserInputSpecialty.ToLower () == "muscle")
+                Console.WriteLine ($"You currently have {rolodex.Count} crew members in your rolodex");
+                Console.WriteLine ($"please add a new crew member:");
+                var UserInputName = Console.ReadLine ();
+                Console.Clear ();
+                if (UserInputName == "")
                 {
-                    Muscle NewMuscle = new Muscle ();
-                    Console.Clear ();
-                    while (true)
-                    {
-                        Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
-                        UserInputSkillLevl = Console.ReadLine ();
-                        try
-                        {
-                            if (int.Parse (UserInputSkillLevl) <= 100)
-                            {
-                                NewMuscle.SkillLevel = int.Parse (UserInputSkillLevl);
-                                break;
-
-                            }
-                            else
-                            {
-                                Console.Clear ();
-                                Console.WriteLine ("Please keep the number under 100.");
-                                Console.WriteLine ("---------------------------------");
-                            }
-
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.Clear ();
-                            Console.WriteLine ("Please enter a valid  number.");
-                            Console.WriteLine ("---------------------------------");
-                        }
-
-                    }
-
-                    while (true)
-                    {
-                        Console.WriteLine ($"Please define a percentage cut for {UserInputName} (0 - 100)");
-                        UserInputPercentage = Console.ReadLine ();
-                        try
-                        {
-                            if (int.Parse (UserInputPercentage) <= 100)
-                            {
-                                NewMuscle.PercentageCut = int.Parse (UserInputPercentage);
-                                break;
-
-                            }
-                            else
-                            {
-                                Console.Clear ();
-                                Console.WriteLine ("Please keep the number under 100.");
-                                Console.WriteLine ("---------------------------------");
-                            }
-
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.Clear ();
-                            Console.WriteLine ("Please enter a valid  number.");
-                            Console.WriteLine ("---------------------------------");
-                        }
-
-                    }
-                    rolodex.Add (NewMuscle);
-                    break;
-                }
-                else if (UserInputSpecialty.ToLower () == "hacker")
-                {
-                    Hacker NewHacker = new Hacker ();
-                    while (true)
-                    {
-                        Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
-                        UserInputSkillLevl = Console.ReadLine ();
-                        try
-                        {
-                            if (int.Parse (UserInputSkillLevl) <= 100)
-                            {
-                                NewHacker.SkillLevel = int.Parse (UserInputSkillLevl);
-                                break;
-
-                            }
-                            else
-                            {
-                                Console.Clear ();
-                                Console.WriteLine ("Please keep the number under 100.");
-                                Console.WriteLine ("---------------------------------");
-                            }
-
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.Clear ();
-                            Console.WriteLine ("Please enter a valid  number.");
-                            Console.WriteLine ("---------------------------------");
-                        }
-
-                    }
-
-                    while (true)
-                    {
-                        Console.WriteLine ($"Please define a percentage cut for {UserInputName} (0 - 100)");
-                        UserInputPercentage = Console.ReadLine ();
-                        try
-                        {
-                            if (int.Parse (UserInputPercentage) <= 100)
-                            {
-                                NewHacker.PercentageCut = int.Parse (UserInputPercentage);
-                                break;
-
-                            }
-                            else
-                            {
-                                Console.Clear ();
-                                Console.WriteLine ("Please keep the number under 100.");
-                                Console.WriteLine ("---------------------------------");
-                            }
-
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.Clear ();
-                            Console.WriteLine ("Please enter a valid  number.");
-                            Console.WriteLine ("---------------------------------");
-                        }
-
-                    }
-
-                    rolodex.Add (NewHacker);
-                    break;
-                }
-                else if (UserInputSpecialty.ToLower () == "lock specialist")
-                {
-                    LockPick NewLockPick = new LockPick ();
-                    while (true)
-                    {
-                        Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
-                        UserInputSkillLevl = Console.ReadLine ();
-                        try
-                        {
-                            if (int.Parse (UserInputSkillLevl) <= 100)
-                            {
-                                NewLockPick.SkillLevel = int.Parse (UserInputSkillLevl);
-                                break;
-
-                            }
-                            else
-                            {
-                                Console.Clear ();
-                                Console.WriteLine ("Please keep the number under 100.");
-                                Console.WriteLine ("---------------------------------");
-                            }
-
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.Clear ();
-                            Console.WriteLine ("Please enter a valid  number.");
-                            Console.WriteLine ("---------------------------------");
-                        }
-
-                    }
-
-                    while (true)
-                    {
-                        Console.WriteLine ($"Please define a percentage cut for {UserInputName} (0 - 100)");
-                        UserInputPercentage = Console.ReadLine ();
-                        try
-                        {
-                            if (int.Parse (UserInputPercentage) <= 100)
-                            {
-                                NewLockPick.PercentageCut = int.Parse (UserInputPercentage);
-                                break;
-
-                            }
-                            else
-                            {
-                                Console.Clear ();
-                                Console.WriteLine ("Please keep the number under 100.");
-                                Console.WriteLine ("---------------------------------");
-                            }
-
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.Clear ();
-                            Console.WriteLine ("Please enter a valid  number.");
-                            Console.WriteLine ("---------------------------------");
-                        }
-
-                    }
-                    rolodex.Add (NewLockPick);
                     break;
                 }
                 else
                 {
-                    Console.Clear ();
-                    Console.WriteLine ("**** Please enter a valid specialty ****");
+                    while (true)
+                    {
+
+                        Console.WriteLine ($"Please Choose a sepcialty for {UserInputName}");
+                        Console.WriteLine ("----------");
+                        Console.WriteLine ("Hacker (Disables alarms)");
+                        Console.WriteLine ("Muscle (Disarms guards)");
+                        Console.WriteLine ("Lock Specialist (cracks vault)");
+                        var UserInputSpecialty = Console.ReadLine ();
+                        var UserInputSkillLevl = "";
+                        var UserInputPercentage = "";
+
+                        if (UserInputSpecialty.ToLower () == "muscle")
+                        {
+                            Muscle NewMember = new Muscle ();
+                            Console.Clear ();
+                            while (true)
+                            {
+                                Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
+                                UserInputSkillLevl = Console.ReadLine ();
+                                try
+                                {
+                                    if (int.Parse (UserInputSkillLevl) <= 100)
+                                    {
+                                        NewMember.SkillLevel = int.Parse (UserInputSkillLevl);
+                                        break;
+
+                                    }
+                                    else
+                                    {
+                                        Console.Clear ();
+                                        Console.WriteLine ("Please keep the number under 100.");
+                                        Console.WriteLine ("---------------------------------");
+                                    }
+
+                                }
+                                catch (System.FormatException)
+                                {
+                                    Console.Clear ();
+                                    Console.WriteLine ("Please enter a valid  number.");
+                                    Console.WriteLine ("---------------------------------");
+                                }
+
+                            }
+
+                            while (true)
+                            {
+                                Console.WriteLine ($"Please define a percentage cut for {UserInputName} (0 - 100)");
+                                UserInputPercentage = Console.ReadLine ();
+                                try
+                                {
+                                    if (int.Parse (UserInputPercentage) <= 100)
+                                    {
+                                        NewMember.PercentageCut = int.Parse (UserInputPercentage);
+                                        break;
+
+                                    }
+                                    else
+                                    {
+                                        Console.Clear ();
+                                        Console.WriteLine ("Please keep the number under 100.");
+                                        Console.WriteLine ("---------------------------------");
+                                    }
+
+                                }
+                                catch (System.FormatException)
+                                {
+                                    Console.Clear ();
+                                    Console.WriteLine ("Please enter a valid  number.");
+                                    Console.WriteLine ("---------------------------------");
+                                }
+
+                            }
+                            rolodex.Add (NewMember);
+                            break;
+                        }
+                        else if (UserInputSpecialty.ToLower () == "hacker")
+                        {
+                            Hacker NewMember = new Hacker ();
+                            while (true)
+                            {
+                                Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
+                                UserInputSkillLevl = Console.ReadLine ();
+                                try
+                                {
+                                    if (int.Parse (UserInputSkillLevl) <= 100)
+                                    {
+                                        NewMember.SkillLevel = int.Parse (UserInputSkillLevl);
+                                        break;
+
+                                    }
+                                    else
+                                    {
+                                        Console.Clear ();
+                                        Console.WriteLine ("Please keep the number under 100.");
+                                        Console.WriteLine ("---------------------------------");
+                                    }
+
+                                }
+                                catch (System.FormatException)
+                                {
+                                    Console.Clear ();
+                                    Console.WriteLine ("Please enter a valid  number.");
+                                    Console.WriteLine ("---------------------------------");
+                                }
+
+                            }
+
+                            while (true)
+                            {
+                                Console.WriteLine ($"Please define a percentage cut for {UserInputName} (0 - 100)");
+                                UserInputPercentage = Console.ReadLine ();
+                                try
+                                {
+                                    if (int.Parse (UserInputPercentage) <= 100)
+                                    {
+                                        NewMember.PercentageCut = int.Parse (UserInputPercentage);
+                                        break;
+
+                                    }
+                                    else
+                                    {
+                                        Console.Clear ();
+                                        Console.WriteLine ("Please keep the number under 100.");
+                                        Console.WriteLine ("---------------------------------");
+                                    }
+
+                                }
+                                catch (System.FormatException)
+                                {
+                                    Console.Clear ();
+                                    Console.WriteLine ("Please enter a valid  number.");
+                                    Console.WriteLine ("---------------------------------");
+                                }
+
+                            }
+
+                            rolodex.Add (NewMember);
+                            break;
+                        }
+                        else if (UserInputSpecialty.ToLower () == "lock specialist")
+                        {
+                            LockPick NewMember = new LockPick ();
+                            while (true)
+                            {
+                                Console.WriteLine ($"Please Choose a skill level for {UserInputName} (0 - 100)");
+                                UserInputSkillLevl = Console.ReadLine ();
+                                try
+                                {
+                                    if (int.Parse (UserInputSkillLevl) <= 100)
+                                    {
+                                        NewMember.SkillLevel = int.Parse (UserInputSkillLevl);
+                                        break;
+
+                                    }
+                                    else
+                                    {
+                                        Console.Clear ();
+                                        Console.WriteLine ("Please keep the number under 100.");
+                                        Console.WriteLine ("---------------------------------");
+                                    }
+
+                                }
+                                catch (System.FormatException)
+                                {
+                                    Console.Clear ();
+                                    Console.WriteLine ("Please enter a valid  number.");
+                                    Console.WriteLine ("---------------------------------");
+                                }
+
+                            }
+
+                            while (true)
+                            {
+                                Console.WriteLine ($"Please define a percentage cut for {UserInputName} (0 - 100)");
+                                UserInputPercentage = Console.ReadLine ();
+                                try
+                                {
+                                    if (int.Parse (UserInputPercentage) <= 100)
+                                    {
+                                        NewMember.PercentageCut = int.Parse (UserInputPercentage);
+                                        break;
+
+                                    }
+                                    else
+                                    {
+                                        Console.Clear ();
+                                        Console.WriteLine ("Please keep the number under 100.");
+                                        Console.WriteLine ("---------------------------------");
+                                    }
+
+                                }
+                                catch (System.FormatException)
+                                {
+                                    Console.Clear ();
+                                    Console.WriteLine ("Please enter a valid  number.");
+                                    Console.WriteLine ("---------------------------------");
+                                }
+
+                            }
+                            rolodex.Add (NewMember);
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear ();
+                            Console.WriteLine ("**** Please enter a valid specialty ****");
+                        }
+
+                    }
                 }
 
             }
