@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace plan_your_heist_pt2
 {
@@ -7,10 +8,12 @@ namespace plan_your_heist_pt2
     {
         static void Main (string[] args)
         {
-            // In the Main method, create a List<IRobber> and store it in a variable named rolodex. 
-            // This list will contain all possible operatives that we could employ for future heists. 
-            // We want to give the user the opportunity to add new operatives to this list, but for now let's 
-            // pre-populate the list with 5 or 6 robbers (give it a mix of Hackers, Lock Specialists, and Muscle).
+            Random randy = new Random ();
+
+            int AlarmScore = randy.Next (0, 101);
+            int VaultScore = randy.Next (0, 101);
+            int SecurityGuardScore = randy.Next (0, 101);
+            int CashOnHand = randy.Next (500000, 1000000);
 
             var rolodex = new List<IRobber> ();
             var garrett = new Muscle ()
@@ -287,7 +290,39 @@ namespace plan_your_heist_pt2
                 }
 
             }
+            var ReconReport = new List<int> ();
+            ReconReport.Add (VaultScore);
+            ReconReport.Add (AlarmScore);
+            ReconReport.Add (SecurityGuardScore);
 
+            var HighestScore = ReconReport.Max (randy => randy);
+            var LowestScore = ReconReport.Min (randy => randy);
+            if (HighestScore == AlarmScore)
+            {
+                Console.WriteLine ("Highest: Alarm");
+            }
+            else if (HighestScore == VaultScore)
+            {
+                Console.WriteLine ("Highest: Vault");
+
+            }
+            else if (HighestScore == SecurityGuardScore)
+            {
+                Console.WriteLine ("Highest: Security");
+            }
+            if (LowestScore == AlarmScore)
+            {
+                Console.WriteLine ("Lowest: Alarm");
+            }
+            else if (LowestScore == VaultScore)
+            {
+                Console.WriteLine ("Lowest: Vault");
+
+            }
+            else if (LowestScore == SecurityGuardScore)
+            {
+                Console.WriteLine ("Lowest: Security");
+            }
         }
     }
 }
